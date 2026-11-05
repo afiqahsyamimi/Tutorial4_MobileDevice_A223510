@@ -1,6 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class MobileGUI extends JFrame implements ActionListener
 {
@@ -25,12 +25,9 @@ public class MobileGUI extends JFrame implements ActionListener
 
         setLayout(new BorderLayout());
 
-        JLabel title =
-                new JLabel("MOBILE DEVICE APP",
-                SwingConstants.CENTER);
+        JLabel title = new JLabel("MOBILE DEVICE APP", SwingConstants.CENTER);
 
-        title.setFont(
-                new Font("Arial", Font.BOLD, 18));
+        title.setFont(new Font("Arial", Font.BOLD, 18));
 
         add(title, BorderLayout.NORTH);
 
@@ -76,8 +73,7 @@ public class MobileGUI extends JFrame implements ActionListener
         txtOutput = new JTextArea(8,20);
         txtOutput.setEditable(false);
 
-        add(new JScrollPane(txtOutput),
-                BorderLayout.EAST);
+        add(new JScrollPane(txtOutput), BorderLayout.EAST);
 
         btnDisplay.addActionListener(this);
         btnClear.addActionListener(this);
@@ -89,67 +85,34 @@ public class MobileGUI extends JFrame implements ActionListener
     {
         if(e.getSource() == btnDisplay)
         {
-            String manufacturer =
-                    txtManufacturer.getText();
+            String manufacturer = txtManufacturer.getText();
 
-            String model =
-                    txtModel.getText();
+            String model = txtModel.getText();
 
-            String station =
-                    txtStation.getText();
+            String station = txtStation.getText();
 
-            double frequency =
-                    Double.parseDouble(
-                            txtFrequency.getText());
+            double frequency = Double.parseDouble(txtFrequency.getText());
 
-            String device =
-                    cboDevice.getSelectedItem()
-                            .toString();
+            String device = cboDevice.getSelectedItem().toString();
 
             if(device.equals("Smart Phone"))
             {
-                SmartPhone sp =
-                        new SmartPhone(
-                                manufacturer,
-                                model,
-                                "Galaxy");
+                SmartPhone sp = new SmartPhone(manufacturer, model, "Galaxy");
 
                 sp.setStation(station);
                 sp.setFrequency(frequency);
 
-                txtOutput.setText(
-                        "SmartPhone Detail:" +
-                        "\nManufacturer: " +
-                        manufacturer +
-                        "\nModel: " +
-                        model +
-                        "\nType: Galaxy" +
-                        "\nStation: " +
-                        station +
-                        "\nFrequency: " +
-                        frequency);
+                txtOutput.setText("SmartPhone Detail:" + "\nManufacturer: " + manufacturer + "\nModel: " + model + "\nType: Galaxy" + "\nStation: " + station + "\nFrequency: " + frequency);
             }
 
             else
             {
-                BasicPhone bp =
-                        new BasicPhone(
-                                manufacturer,
-                                model);
+                BasicPhone bp = new BasicPhone(manufacturer, model);
 
                 bp.setStation(station);
                 bp.setFrequency(frequency);
 
-                txtOutput.setText(
-                        "Basic Phone Detail:" +
-                        "\nManufacturer: " +
-                        manufacturer +
-                        "\nModel: " +
-                        model +
-                        "\nStation: " +
-                        station +
-                        "\nFrequency: " +
-                        frequency);
+                txtOutput.setText("Basic Phone Detail:" + "\nManufacturer: " + manufacturer + "\nModel: " + model + "\nStation: " + station + "\nFrequency: " + frequency);
             }
         }
 
